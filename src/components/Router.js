@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Auth from "../routes/Auth";
-import Home from "../routes/Home";
+import Auth from "routes/Auth";
+import Home from "routes/Home";
 
-const AppRouter = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // false = 기본으로는 로그인이 안된상태!
+const AppRouter = ({ isLoggedIn }) => {
+    //Router가 하나의 용도로만 쓰여야하기때문에 useState는 App.js로 이동. Routs만 보이게 한다.
     return(
         <Router>
             <Switch>
