@@ -1,12 +1,25 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AppRouter from 'components/Router';
 import { authService } from 'fBase';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser); //로그인 여부 확인
+  const [init, setinit] = useState(false);//아직은 초기화X
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+        if(user) {
+          setIsLoggedIn(true);
+        } else {
+          setIsLoggedIn(false);
+        }
+        setinit(true)
+        // init = false일 경우, router를 숨길 것이기 때문에 true로 바꿔주어야한다.
+      }
+    );
+  }, []) //로그인 여부 확인
   return( 
     <>
-      <AppRouter isLoggedIn={isLoggedIn} />
+      {init ? <AppRouter isLoggedIn={isLoggedIn} /> : "Initializing..."}
       <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </> 
   );
