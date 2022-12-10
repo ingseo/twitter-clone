@@ -5,10 +5,12 @@ import { authService } from 'fBase';
 function App() {
   const [init, setinit] = useState(false);//아직은 초기화X
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
         if(user) {
           setIsLoggedIn(true);
+          setUserObj(user);
         } else {
           setIsLoggedIn(false);
         }
@@ -19,7 +21,7 @@ function App() {
   }, []) //로그인 여부 확인
   return( 
     <>
-      {init ? <AppRouter isLoggedIn={isLoggedIn} /> : "Initializing..."}
+      {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : "Initializing..."} 
       <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </> 
   );

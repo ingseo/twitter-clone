@@ -2,7 +2,7 @@ import { dbService } from "fBase";
 import React, { useEffect, useState } from "react";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 
-const Home = () => {
+const Home = ({ userObj }) => {
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
     const getNweets = async() => {
@@ -22,8 +22,9 @@ const Home = () => {
         e.preventDefault();
         try {
             const docRef = await addDoc(collection(dbService, "nweets"), {
-            nweet,
+            text: nweet,
             createdAt: Date.now(),
+            creatorId: userObj.uid,
         });
             console.log("Document written with ID: ", docRef.id);
         } catch (error) {
