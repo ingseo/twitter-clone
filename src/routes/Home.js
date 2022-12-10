@@ -1,22 +1,28 @@
 import { dbService } from "fBase";
 import React, { useEffect, useState } from "react";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { 
+    collection, 
+    addDoc, 
+    onSnapshot,
+    orderBy,
+    query,
+} from "firebase/firestore";
 
 const Home = ({ userObj }) => {
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
-    const getNweets = async() => {
-        const dbNweets = await getDocs(collection(dbService, "nweets"));
-        dbNweets.forEach(document => {
-            const nweetObject = {
-                ...document.data(),
-                id: document.id,
-            }
-            setNweets(prev => [nweetObject, ...prev]) 
-        });
-    }
     useEffect(() => {
-        getNweets();
+        const q = query(
+            collection(dbService, "nweets"),
+            orderBy("createdAt", "desc") //firebase collection에 순서대로(내림차) 쌓이게끔 하기위해
+        );
+        onSnapshot(q, (snapshot) => {
+            const nweetArr = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setNweets(nweetArr);
+        });
     },[])
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -38,7 +44,6 @@ const Home = ({ userObj }) => {
         } = event; //=from event. event 안의 target안의 value 
         setNweet(value);
     }
-    console.log(nweets);
     
     return(
         <div>
@@ -53,9 +58,9 @@ const Home = ({ userObj }) => {
                 <input type="submit" value="Nweet" />
             </form>
             <div>
-                {nweets.map(nweet => 
+                {nweets.map((nweet) => 
                     <div key={nweet.id}>
-                        <h4>{nweet.nweet}</h4>
+                        <h4>{nweet.text}</h4>
                     </div>)}
             </div>
         </div>
