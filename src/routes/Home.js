@@ -6,46 +6,31 @@ import {
     onSnapshot,
     orderBy,
     query,
-    // getDocs,
 } from "firebase/firestore";
+import Tweet from "components/Tweet";
 
 const Home = ({ userObj }) => {
-    const [nweet, setNweet] = useState("");
-    const [nweets, setNweets] = useState([]);
-
-    // const getNweets = async() => {
-    //     const dbNweets = await getDocs(collection(dbService, "nweets"));
-    //     dbNweets.forEach(document => {
-    //         const nweetObject = {
-    //             ...document.data(),
-    //             id: document.id,
-    //         }
-    //         setNweets(prev => [nweetObject, ...prev])
-    //     });
-    // }
-    // useEffect(() =>{
-    //     getNweets();
-    // },[])
-
+    const [tweet, settweet] = useState("");
+    const [tweets, settweets] = useState([]);
 
     useEffect(() => {
         const q = query(
-            collection(dbService, "nweets"),
+            collection(dbService, "tweets"),
             orderBy("createdAt", "desc") //firebase collection에 순서대로(내림차) 쌓이게끔 하기위해
         );
         onSnapshot(q, (snapshot) => {
-            const nweetArr = snapshot.docs.map((doc) => ({
+            const tweetArr = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
             }));
-            setNweets(nweetArr);
+            settweets(tweetArr);
         });
     },[])
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const docRef = await addDoc(collection(dbService, "nweets"), {
-            text: nweet,
+            const docRef = await addDoc(collection(dbService, "tweets"), {
+            text: tweet,
             createdAt: Date.now(),
             creatorId: userObj.uid,
         });
@@ -53,32 +38,31 @@ const Home = ({ userObj }) => {
         } catch (error) {
             console.error("Error adding document: ", error);
         }
-        setNweet("");
+        settweet("");
     }
     const onChange = (event) => {
         const {
             target:{ value },
         } = event; //=from event. event 안의 target안의 value 
-        setNweet(value);
+        settweet(value);
     }
     
     return(
         <div>
             <form onSubmit={onSubmit}>
                 <input 
-                    value={nweet} 
+                    value={tweet} 
                     onChange={onChange} 
                     type="text" 
                     placeholder="What's on your mind?" 
                     maxLength={140} 
                 />
-                <input type="submit" value="Nweet" />
+                <input type="submit" value="tweet" />
             </form>
             <div>
-                {nweets.map((nweet) => 
-                    <div key={nweet.id}>
-                        <h4>{nweet.text}</h4>
-                    </div>)}
+                {tweets.map((tweet) => (
+                    <Tweet key={tweet.id} tweetObj={tweet} /> 
+                ))}
             </div>
         </div>
     )

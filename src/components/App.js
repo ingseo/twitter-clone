@@ -22,7 +22,7 @@ function App() {
   return( 
     <>
       {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : "Initializing..."} 
-      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
+      <footer>&copy; {new Date().getFullYear()} Twitter</footer>
     </> 
   );
   //App()안에 <AppRouter>를 사용하는 이유 = AppRouter 외에 다른 것을 더 사용할 수 있게끔 분리시킨 것이다.
