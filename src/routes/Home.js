@@ -5,7 +5,7 @@ import {
     addDoc, 
     onSnapshot,
     orderBy,
-    query,
+    query
 } from "firebase/firestore";
 import Tweet from "components/Tweet";
 
