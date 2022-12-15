@@ -61,7 +61,7 @@ const Home = ({ userObj }) => {
             </form>
             <div>
                 {tweets.map((tweet) => (
-                    <Tweet key={tweet.id} tweetObj={tweet} /> 
+                    <Tweet key={tweet.id} tweetObj={tweet} isOwner={tweet.creatorId === userObj.uid} /> 
                 ))}
             </div>
         </div>
