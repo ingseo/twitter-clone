@@ -46,7 +46,18 @@ const Home = ({ userObj }) => {
         } = event; //=from event. event 안의 target안의 value 
         settweet(value);
     }
-    
+    const onfileChange = (event) => {
+        const {
+            target: { files },
+        } = event; //event 안에서 target안으로 가 파일을 받아오는 것을 의미
+        const theFile = files[0];
+        const reader = new FileReader(); //filereader API
+        reader.onloadend = (finishedEvent) => {
+            console.log(finishedEvent)
+        }
+        reader.readAsDataURL(theFile);
+    }
+
     return(
         <div>
             <form onSubmit={onSubmit}>
@@ -57,6 +68,7 @@ const Home = ({ userObj }) => {
                     placeholder="What's on your mind?" 
                     maxLength={140} 
                 />
+                <input type="file" accept="image/*" onChange={onfileChange}/>
                 <input type="submit" value="tweet" />
             </form>
             <div>
