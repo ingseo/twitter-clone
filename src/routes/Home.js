@@ -1,5 +1,5 @@
 import { dbService } from "fBase";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { 
     collection, 
     addDoc, 
@@ -10,8 +10,9 @@ import {
 import Tweet from "components/Tweet";
 
 const Home = ({ userObj }) => {
-    const [tweet, settweet] = useState("");
-    const [tweets, settweets] = useState([]);
+    const [tweet, setTweet] = useState("");
+    const [tweets, setTweets] = useState([]);
+    const [attachment, setAttachment] = useState();
 
     useEffect(() => {
         const q = query(
@@ -23,7 +24,7 @@ const Home = ({ userObj }) => {
                 id: doc.id,
                 ...doc.data(),
             }));
-            settweets(tweetArr);
+            setTweets(tweetArr);
         });
     },[])
     const onSubmit = async (e) => {
@@ -38,13 +39,13 @@ const Home = ({ userObj }) => {
         } catch (error) {
             console.error("Error adding document: ", error);
         }
-        settweet("");
+        setTweet("");
     }
     const onChange = (event) => {
         const {
             target:{ value },
         } = event; //=from event. event 안의 target안의 value 
-        settweet(value);
+        setTweet(value);
     }
     const onfileChange = (event) => {
         const {
@@ -53,10 +54,19 @@ const Home = ({ userObj }) => {
         const theFile = files[0];
         const reader = new FileReader(); //filereader API
         reader.onloadend = (finishedEvent) => {
-            console.log(finishedEvent)
+            const {
+                currentTarget: { result },
+            } = finishedEvent; 
+            setAttachment(result);
         }
         reader.readAsDataURL(theFile);
     }
+    const fileInput = useRef();
+    const onClearAttachment = () => {
+        setAttachment(null);
+        fileInput.current.value = null;
+    }
+    
 
     return(
         <div>
@@ -68,8 +78,15 @@ const Home = ({ userObj }) => {
                     placeholder="What's on your mind?" 
                     maxLength={140} 
                 />
-                <input type="file" accept="image/*" onChange={onfileChange}/>
+                <input type="file" accept="image/*" onChange={onfileChange} ref={fileInput}/>
                 <input type="submit" value="tweet" />
+                {attachment && (
+                    <div>
+                        <img src={attachment} width="50px" height="50px" />
+                        <button onClick={onClearAttachment}>Cancel</button>
+                    </div>
+                )}
+                {/* attachment가 있을때만 이미지가 보인다 */}
             </form>
             <div>
                 {tweets.map((tweet) => (
