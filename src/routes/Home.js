@@ -32,7 +32,6 @@ const Home = ({ userObj }) => {
     const onSubmit = async (e) => {
         e.preventDefault();
         let attachmentUrl = "";
-        //파일에 대한 레퍼런스를 만들고, 몇몇 내용과 함께 업로드
         //이미지 첨부하지 않고 텍스트만 올리고 싶을 때도 있기 때문에 attachment가 있을때만 아래 코드 실행
         //이미지 첨부하지 않은 경우엔 attachmentUrl=""이 된다.
         if (attachment !== "") {
@@ -50,12 +49,12 @@ const Home = ({ userObj }) => {
             creatorId: userObj.uid,
             attachmentUrl,
         }
-        //트윗하기 누르면 nweetObj 형태로 새로운 document 생성하여 nweets 콜렉션에 넣기
+        //트윗하기 누르면 tweetObj 형태로 새로운 document 생성하여 tweets 콜렉션에 넣기
         await addDoc(collection(dbService, "tweets"), tweetObj);
         //state 비워서 form 비우기
         setTweet("");
         //파일 미리보기 img src 비워주기
-        setAttachment("");
+        onClearAttachment("");  
     }
     const onChange = (event) => {
         const {
