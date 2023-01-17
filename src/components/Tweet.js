@@ -61,6 +61,9 @@ const Tweet = ({ tweetObj, isOwner }) => {
             ) : (
                 <>
                     <h4>{tweetObj.text}</h4>
+                    {tweetObj.attachmentUrl && (
+                        <img src={tweetObj.attachmentUrl} width="300px" height="300px" />
+                    )}
                     <span>{new Date(tweetObj.createdAt).toLocaleString()}</span>
                     {isOwner && (
                         <>
