@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { collection, getDocs, query, where, orderBy } from "@firebase/firestore";
 import { updateProfile } from "@firebase/auth";
-import { async } from "@firebase/util";
 
 //1. 로그인한 유저 정보 prop으로 받기
-const Profile = ({ userObj }) => {
+const Profile = ({ refreshUser, userObj }) => {
     const history = useHistory();
     const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
     const onLogOutClick = () => {
@@ -26,7 +25,7 @@ const Profile = ({ userObj }) => {
         //3-2. getDocs()메서드로 쿼리 결과 값 가져오기
         const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-            console.log(doc.id, "=>", doc.data());
+            // console.log(doc.id, "=>", doc.data());
         });
     };
     //4. 내 tweets 얻는 function 호출
@@ -43,8 +42,9 @@ const Profile = ({ userObj }) => {
     }
     const onSubmit = async (event) => {
         event.preventDefault();
-        if (userObj.displayName !== newDisplayName) {
-            await updateProfile(userObj, { displayName: newDisplayName });
+        if(userObj.displayName !== newDisplayName){
+            await updateProfile(authService.currentUser, { displayName: newDisplayName });
+            refreshUser();
         }
     }
 
