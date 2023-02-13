@@ -9,7 +9,7 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
     //Router가 하나의 용도로만 쓰여야하기때문에 useState는 App.js로 이동. Routs만 보이게 한다.
     return(
         <Router>
-            {isLoggedIn && <Navigation />}
+            {isLoggedIn && <Navigation userObj={userObj} />}
             {/* Navigation이 존재하려면 isLoggedIn이 true여야 한다. */}
             <Switch>
                 {/* 로그인이 되어있다면, home으로, 아니라면 Auth로 이동 */}
