@@ -15,6 +15,8 @@ function App() {
             uid: user.uid,
             updateProfile: (args) => updateProfile(user, { displayName: user.displayName }),
           });
+        } else {
+          setUserObj(null)
         }
         setinit(true)
         // init = false일 경우, router를 숨길 것이기 때문에 true로 바꿔주어야한다.
