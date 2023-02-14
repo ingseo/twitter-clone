@@ -3,12 +3,17 @@ import { addDoc, collection } from "firebase/firestore";
 import { dbService, storageService } from "fBase";
 import { v4 as uuidv4 } from 'uuid';
 import { ref, uploadString, getDownloadURL } from "@firebase/storage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const TweetFactory = ({ userObj }) => {
     const [tweet, setTweet] = useState("");
     const [attachment, setAttachment] = useState("");
 
     const onSubmit = async (e) => {
+        if (tweet === "") {
+            return;
+        }
         e.preventDefault();
         let attachmentUrl = "";
         //이미지 첨부하지 않고 텍스트만 올리고 싶을 때도 있기 때문에 attachment가 있을때만 아래 코드 실행
@@ -41,7 +46,7 @@ const TweetFactory = ({ userObj }) => {
         } = event; //=from event. event 안의 target안의 value 
         setTweet(value);
     }
-    const onfileChange = (event) => {
+    const onFileChange = (event) => {
         const {
             target: { files },
         } = event; //event 안에서 target안으로 가 파일을 받아오는 것을 의미
@@ -62,20 +67,43 @@ const TweetFactory = ({ userObj }) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className="factoryForm" onSubmit={onSubmit}>
+            <div className="factoryInput__container">
+                <input
+                className="factoryInput__input"
+                value={tweet}
+                onChange={onChange}
+                type="text"
+                placeholder="What's on your mind?"
+                maxLength={140}
+                />
+                <input type="submit" value="&rarr;" className="factoryInput__arrow" />
+            </div>
+            <label htmlFor="attach-file" className="factoryInput__label">
+                <span>Add photos</span>
+                <FontAwesomeIcon icon={faPlus} />
+            </label>
             <input 
-                value={tweet} 
-                onChange={onChange} 
-                type="text" 
-                placeholder="What's on your mind?" 
-                maxLength={140} 
+                id="attach-file"
+                type="file"
+                accept="image/*"
+                onChange={onFileChange}
+                style={{
+                    opacity: 0,
+                }}
             />
-            <input type="file" accept="image/*" onChange={onfileChange} ref={fileInput}/>
-            <input type="submit" value="tweet" />
             {attachment && (
-                <div>
-                    <img src={attachment} width="50px" height="50px" />
-                    <button onClick={onClearAttachment}>Cancel</button>
+                <div className="factoryForm__attachment">
+                    <img
+                        src={attachment}
+                        style={{
+                        backgroundImage: attachment,
+                    }}
+                    />
+                    <div className="factoryForm__clear" onClick={onClearAttachment}>
+                        <span>Remove</span>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </div>
                 </div>
             )}
             {/* attachment가 있을때만 이미지가 보인다 */}

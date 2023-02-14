@@ -2,6 +2,8 @@ import { dbService, storageService } from "fBase";
 import React, { useState } from "react"; 
 import { doc, deleteDoc, updateDoc }from"firebase/firestore";
 import { deleteObject, ref } from "@firebase/storage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Tweet = ({ tweetObj, isOwner }) => {
     const tweetTextRef =doc(dbService, "tweets", `${tweetObj.id}`);
@@ -50,40 +52,47 @@ const Tweet = ({ tweetObj, isOwner }) => {
     }
 
     return (
-        <div>
+        <div className="tweet">
             {editing ? (
                 <>
                     {isOwner && 
                         <>
-                            <form onSubmit={onSubmit}>
+                            <form className="container tweetEdit" onSubmit={onSubmit}>
                                 <input 
+                                    className="formInput"
                                     type="text" 
                                     value={newTweet} 
                                     placeholder="What's on your mind?"  
                                     required 
+                                    autoFocus
                                     onChange={onChange}
                                 />
                                 <input 
+                                    className="formBtn"
                                     type="submit"
                                     value="Update Tweet"
                                 />
                             </form>
-                            <button onClick={editCancel}>Cancel</button>
+                            <span onClick={toggleEditing} className="formBtn cancelBtn">
+                                Cancel
+                            </span>
                         </>
                     }
                 </>
             ) : (
                 <>
                     <h4>{tweetObj.text}</h4>
-                    {tweetObj.attachmentUrl && (
-                        <img src={tweetObj.attachmentUrl} width="300px" height="300px" />
-                    )}
+                    {tweetObj.attachmentUrl && <img src={tweetObj.attachmentUrl} />}
                     <span>{new Date(tweetObj.createdAt).toLocaleString()}</span>
                     {isOwner && (
-                        <>
-                            <button onClick={toggleEditing}>Edit</button>
-                            <button onClick={onDeleteClick}>Delete</button>
-                        </>
+                        <div className="tweet__actions">
+                            <span onClick={onDeleteClick}>
+                                <FontAwesomeIcon icon={faTrash} />
+                            </span>
+                            <span onClick={toggleEditing}>
+                                <FontAwesomeIcon icon={faPencilAlt} />
+                            </span>
+                        </div>
                     )}
                 </>
             )}
