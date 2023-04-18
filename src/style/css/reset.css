@@ -15,10 +15,12 @@ table, th, td, tr, textarea, button, form, figure, figcaption {
 /* a 링크 초기화 */
 a {
   text-decoration: none;
+  color: #0f1419;
 }
 
 a:hover {
   text-decoration: none;
+  color: #0f1419;
 }
 
 /* 폰트 초기화 */

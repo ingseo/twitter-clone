@@ -1,9 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 html {
   font-size: 10px;
+  color: #0f1419;
 }
 html body button, html body input[type=button], html body input[type=reset], html body input[type=submit] {
   cursor: pointer;
+}
+
+.routerContainer {
+  display: flex;
+  height: 100vh;
+}
+.routerContainer .mainContainer {
+  flex-grow: 1;
 }
 
 @media (max-width: 633px) {
