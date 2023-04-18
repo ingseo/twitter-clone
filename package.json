@@ -14,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.6.1",
     "gh-pages": "^5.0.0",
+    "node-scss": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.3",
@@ -46,5 +47,8 @@
       "last 1 safari version"
     ]
   },
-  "hompage": "https://ingseo.github.io/twitter-clone"
+  "hompage": "https://ingseo.github.io/twitter-clone",
+  "devDependencies": {
+    "sass": "^1.62.0"
+  }
 }

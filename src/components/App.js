@@ -3,6 +3,9 @@ import AppRouter from 'components/Router';
 import { authService } from 'fBase';
 import { updateProfile } from "@firebase/auth";
 
+import '../style/scss/reset.scss'
+import '../style/scss/common.scss'
+
 function App() {
   const [init, setinit] = useState(false);
   const [userObj, setUserObj] = useState(null); 
