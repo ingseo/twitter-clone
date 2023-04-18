@@ -13,6 +13,7 @@ html body button, html body input[type=button], html body input[type=reset], htm
 }
 .routerContainer .mainContainer {
   flex-grow: 1;
+  width: 99rem;
 }
 
 @media (max-width: 633px) {
