@@ -13,8 +13,8 @@ body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,input,fieldset,legend,p,select,
 table,th,td,tr,textarea,button,form,figure,figcaption{margin:0;padding:0;}
 
 /* a 링크 초기화 */
-a {text-decoration: none;}
-a:hover {text-decoration: none;}
+a {text-decoration: none; color: $black;}
+a:hover {text-decoration: none; color: $black;}
 
 /* 폰트 초기화 */
 body, input, textarea, select, button, table 

@@ -17,7 +17,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                     <Navigation userObj={userObj} isLoggedIn={isLoggedIn} />
                     
                     <Switch>
-                        <>
+                        <div className="mainContainer">
                         {/* 로그인이 되어있다면, home으로, 아니라면 Auth로 이동 */}
                         {isLoggedIn ? (
                             <div> 
@@ -35,7 +35,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                                 </Route>
                             </>
                         )}
-                        </>
+                        </div>
                     </Switch>
                 </div>
             </Router>

@@ -3,6 +3,7 @@
 
 html{
     font-size: 10px;
+    color: $black;
 
     body{
         button, input[type=button], input[type=reset], input[type=submit]{
@@ -10,6 +11,17 @@ html{
         }
     }
 }
+
+//구조
+.routerContainer{
+    display: flex;
+    height: 100vh;
+
+    .mainContainer{
+        flex-grow: 1;
+    }
+}
+
 
 @include mobile{
     html{
