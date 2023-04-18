@@ -1,0 +1,70 @@
+@charset 'utf-8';
+@import '_utils';
+
+.loginBanner{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 7.2rem;
+    background-color: $skyBlue;
+
+    .box{
+        width: 25rem;
+    }
+
+    .flexGroup{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 99rem;
+    
+        .text{
+            color: $white;
+            font-size: 1.5rem;
+    
+            h3{
+                font-size: 2.3rem;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .btnGroup{
+        button{
+            padding: 0 1.6rem;
+            height: 3.4rem;
+            font-size: 1.5rem;
+            border: 1px solid $softBorder;
+            border-radius: 5rem;
+            transition: 0.2s;
+
+            &:nth-child(1){
+                background-color: $hover1;
+                color: $white;
+
+                &:hover{
+                    background-color: $hover3;
+                }
+            }
+            &:nth-child(2){
+                margin-left: 1.2rem;
+                background-color: $white2;
+
+                &:hover{
+                    background-color: $border;
+                }
+            }
+        }
+    }
+}
+
+@include desktop{
+    .loginBanner{
+        .box{
+            width: 7rem;
+        }
+    }
+}

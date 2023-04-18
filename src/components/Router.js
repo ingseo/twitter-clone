@@ -5,6 +5,7 @@ import Auth from "routes/Auth";
 import Home from "routes/Home";
 import Navigation from "components/Navigation";
 import Profile from "routes/Profile";
+import LoginBanner from "components/LoginBanner"
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
     //Router가 하나의 용도로만 쓰여야하기때문에 useState는 App.js로 이동. Routs만 보이게 한다.
@@ -37,6 +38,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                         )}
                         </div>
                     </Switch>
+                    {!isLoggedIn && <LoginBanner />}
                 </div>
             </Router>
         </BrowserRouter>

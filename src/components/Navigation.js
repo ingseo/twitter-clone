@@ -19,13 +19,13 @@ const Navigation = ({ isLoggedIn, userObj }) =>
             </Link>
         </li>
         <li>
-            <Link to="#">
+            <Link to="/">
                 <FontAwesomeIcon icon={faHashtag} />
                 <span>탐색하기</span>
             </Link>
         </li>
         <li>
-            <Link to="#">
+            <Link to="/">
                 <FontAwesomeIcon icon={faGear} />
                 <span>설정</span>
             </Link>
