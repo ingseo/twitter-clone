@@ -1,9 +1,9 @@
 import React from 'react'
 
-function trend() {
+function Trend() {
     return (
         <div>trend</div>
     )
 }
 
-export default trend
+export default Trend

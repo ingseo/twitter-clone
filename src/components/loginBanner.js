@@ -1,9 +1,10 @@
 import React from 'react'
+import "../style/scss/loginbanner.scss"
 
-function loginBanner() {
+function LoginBanner() {
     return (
         <div>loginBanner</div>
     )
 }
 
-export default loginBanner
+export default LoginBanner

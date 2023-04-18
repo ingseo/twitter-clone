@@ -1,9 +1,9 @@
 import React from 'react'
 
-function loginPopup() {
+function LoginPopup() {
     return (
         <div>loginPopup</div>
     )
 }
 
-export default loginPopup
+export default LoginPopup
