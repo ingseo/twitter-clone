@@ -11,38 +11,33 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
     return(
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Router>
-                {isLoggedIn && <Navigation userObj={userObj} />}
-                {/* Navigation이 존재하려면 isLoggedIn이 true여야 한다. */}
-                <Switch>
-                    <>
-                    {/* 로그인이 되어있다면, home으로, 아니라면 Auth로 이동 */}
-                    {isLoggedIn ? (
-                        <div
-                            style={{
-                            maxWidth: 890,
-                            width: "100%",
-                            margin: "0 auto",
-                            marginTop: 80,
-                            display: "flex",
-                            justifyContent: "center",
-                            }}
-                        > 
-                            <Route exact path="/"> 
-                                <Home userObj={userObj} /> {/* props 전달 */}
-                            </Route>
-                            <Route exact path="/profile">
-                                <Profile userObj={userObj} refreshUser={refreshUser} />
-                            </Route>
-                        </div> 
-                    ) : (
+                <div className="routerContainer">
+                    {/* {isLoggedIn && <Navigation userObj={userObj} />} */}
+                    {/* Navigation이 존재하려면 isLoggedIn이 true여야 한다. */}
+                    <Navigation userObj={userObj} isLoggedIn={isLoggedIn} />
+                    
+                    <Switch>
                         <>
-                            <Route exact path="/">
-                                <Auth />
-                            </Route>
+                        {/* 로그인이 되어있다면, home으로, 아니라면 Auth로 이동 */}
+                        {isLoggedIn ? (
+                            <div> 
+                                <Route exact path="/"> 
+                                    <Home userObj={userObj} /> {/* props 전달 */}
+                                </Route>
+                                <Route exact path="/profile">
+                                    <Profile userObj={userObj} refreshUser={refreshUser} />
+                                </Route>
+                            </div> 
+                        ) : (
+                            <>
+                                <Route exact path="/">
+                                    <Auth />
+                                </Route>
+                            </>
+                        )}
                         </>
-                    )}
-                    </>
-                </Switch>
+                    </Switch>
+                </div>
             </Router>
         </BrowserRouter>
     );
