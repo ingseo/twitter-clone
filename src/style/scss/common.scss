@@ -15,11 +15,26 @@ html{
 //구조
 .routerContainer{
     display: flex;
-    height: 100vh;
 
     .mainContainer{
         flex-grow: 1;
         width: 99rem;
+    }
+}
+
+.page{
+    display: flex;
+    
+    .container{
+        &:nth-child(1){
+            flex: 2;
+        }
+        &:nth-child(2){
+            position: sticky;
+            flex: 1;
+            min-height: 100vh;
+            border-left: 1px solid $hover2;
+        }
     }
 }
 

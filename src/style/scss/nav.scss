@@ -8,8 +8,11 @@ nav{
     border-right: 1px solid $hover2;
 
     ul{
+        position: sticky !important;
+        top: 0;
         padding: 0 0.8rem;
         width: 25rem;
+        height: 100vh;
         
         li{
             padding-top: 0.4rem;
