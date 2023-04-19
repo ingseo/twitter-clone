@@ -1,49 +1,39 @@
-import { authService } from "fBase";
-import React from "react";
-import { 
-    GithubAuthProvider,
-    GoogleAuthProvider,
-    signInWithPopup,
-} from 'firebase/auth';
-import AuthForm from "components/AuthForm";
+import React, { useState } from 'react';
+import AuthBtn from "components/AuthBtn";
+import AuthForm from 'components/AuthForm'
+import Contact from 'components/Contact';
+import Trend from 'components/Trend';
+import Modal from 'react-modal';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faTwitter,
-    faGoogle,
-    faGithub,
-} from "@fortawesome/free-brands-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Auth = () => {
-    const onSocialClick = async(event) => {
-        const {
-            target: { name }
-        } = event; //es6문법
-        let provider;
-        if(name === "google"){
-            provider = new GoogleAuthProvider();
-        }else if(name === "github"){
-            provider = new GithubAuthProvider();
-        }
-        const data = await signInWithPopup(authService, provider);
-        console.log(data);
-    }  
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     return (
-        <div className="authContainer">
-            <FontAwesomeIcon
-                icon={faTwitter}
-                color={"#04AAFF"}
-                size="3x"
-                style={{ marginBottom: 30 }}
-            />
-            <AuthForm />
-            <div className="authBtns">
-                <button onClick={onSocialClick} name="google" className="authBtn">
-                    Continue with Google <FontAwesomeIcon icon={faGoogle} />
-                </button>
-                <button onClick={onSocialClick} name="github" className="authBtn">
-                    Continue with Github <FontAwesomeIcon icon={faGithub} />
-                </button>
+        <div className='page authPage'>
+            <div className='trendContainer container'>
+                <Trend />
+            </div>
+            <div className="authContainer container">
+                <div className="title">
+                    <h1>트위터에 처음이세요?</h1>
+                    <p>지금 가입해서 나에게 맞춤 설정된 타임라인을 만들어 보세요!</p>
+                </div>
+                <div className='btnGroup'>
+                    <AuthBtn />
+                    <button onClick={()=> setModalIsOpen(true)} name="create" className="authBtn">
+                        계정 만들기
+                    </button>
+                    <Modal isOpen={modalIsOpen} ariaHideApp={false} onRequestClose={() => setModalIsOpen(false)}>
+                        <AuthForm popupType={true}/>
+                        <button className="xBtn" onClick={()=> setModalIsOpen(false)}>
+                            <FontAwesomeIcon icon={faTimes} />
+                        </button>
+                    </Modal>
+                </div>
+                <Contact />
             </div>
         </div>
     );

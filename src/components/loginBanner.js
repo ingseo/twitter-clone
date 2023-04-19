@@ -1,7 +1,15 @@
-import React from 'react'
-import "../style/scss/loginbanner.scss"
+import React, { useState } from 'react';
+import "style/scss/loginbanner.scss"
+import Modal from 'react-modal';
+import AuthForm from 'components/AuthForm'
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function LoginBanner() {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selected, setSelected] = useState(false);
+
     return (
         <div className='loginBanner'>
             <div className='box'></div>
@@ -11,8 +19,18 @@ function LoginBanner() {
                     <p>트위터를 사용하면 가장 먼저 알게 됩니다.</p>
                 </div>
                 <div className='btnGroup'>
-                    <button>로그인</button>
-                    <button>가입하기</button>
+                    <button onClick={()=> {setModalIsOpen(true); setSelected(false)}} name="login" className="authBtn">
+                        로그인
+                    </button>
+                    <button onClick={()=> {setModalIsOpen(true); setSelected(true)}} name="create" className="authBtn">
+                        가입하기
+                    </button>
+                    <Modal isOpen={modalIsOpen} ariaHideApp={false} onRequestClose={() => setModalIsOpen(false)}>
+                        <AuthForm popupType={selected}/>
+                        <button className="xBtn" onClick={()=> setModalIsOpen(false)}>
+                            <FontAwesomeIcon icon={faTimes} />
+                        </button>
+                    </Modal>
                 </div>
             </div>
         </div>
