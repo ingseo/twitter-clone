@@ -4,7 +4,7 @@ import { dbService, storageService } from "fBase";
 import { v4 as uuidv4 } from 'uuid';
 import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faImage } from "@fortawesome/free-solid-svg-icons";
 
 const TweetFactory = ({ userObj }) => {
     const [tweet, setTweet] = useState("");
@@ -74,39 +74,39 @@ const TweetFactory = ({ userObj }) => {
                 value={tweet}
                 onChange={onChange}
                 type="text"
-                placeholder="What's on your mind?"
+                placeholder="무슨 일이 일어나고 있나요?"
                 maxLength={140}
                 />
-                <input type="submit" value="&rarr;" className="factoryInput__arrow" />
-            </div>
-            <label htmlFor="attach-file" className="factoryInput__label">
-                <span>Add photos</span>
-                <FontAwesomeIcon icon={faPlus} />
-            </label>
-            <input 
-                id="attach-file"
-                type="file"
-                accept="image/*"
-                onChange={onFileChange}
-                style={{
-                    opacity: 0,
-                }}
-            />
-            {attachment && (
-                <div className="factoryForm__attachment">
-                    <img
-                        src={attachment}
-                        style={{
-                        backgroundImage: attachment,
+                <input 
+                    id="attach-file"
+                    type="file"
+                    accept="image/*"
+                    onChange={onFileChange}
+                    style={{
+                        display: 'none',
                     }}
-                    />
-                    <div className="factoryForm__clear" onClick={onClearAttachment}>
-                        <span>Remove</span>
-                        <FontAwesomeIcon icon={faTimes} />
+                />
+                {attachment && (
+                    <div className="factoryForm__attachment">
+                        <img
+                            src={attachment}
+                            style={{
+                            backgroundImage: attachment,
+                        }}
+                        />
+                        <div className="factoryForm__clear" onClick={onClearAttachment}>
+                            <FontAwesomeIcon icon={faTimes} />
+                        </div>
                     </div>
-                </div>
-            )}
-            {/* attachment가 있을때만 이미지가 보인다 */}
+                )}
+                {/* attachment가 있을때만 이미지가 보인다 */}
+            </div>
+            <div className="factoryLine">
+                <label htmlFor="attach-file" className="factoryInput__label">
+                    <FontAwesomeIcon icon={faImage} />
+                </label>
+                <input type="submit" value="트윗하기" className="factoryInput__arrow" />
+            </div>
         </form>
     )
 }

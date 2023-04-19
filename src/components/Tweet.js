@@ -74,7 +74,7 @@ const Tweet = ({ tweetObj, isOwner }) => {
                                 />
                             </form>
                             <span onClick={toggleEditing} className="formBtn cancelBtn">
-                                Cancel
+                                취소
                             </span>
                         </>
                     }
@@ -83,17 +83,19 @@ const Tweet = ({ tweetObj, isOwner }) => {
                 <>
                     <h4>{tweetObj.text}</h4>
                     {tweetObj.attachmentUrl && <img src={tweetObj.attachmentUrl} />}
-                    <span>{new Date(tweetObj.createdAt).toLocaleString()}</span>
-                    {isOwner && (
-                        <div className="tweet__actions">
-                            <span onClick={onDeleteClick}>
-                                <FontAwesomeIcon icon={faTrash} />
-                            </span>
-                            <span onClick={toggleEditing}>
-                                <FontAwesomeIcon icon={faPencilAlt} />
-                            </span>
-                        </div>
-                    )}
+                    <div className="TweetFooter">
+                        <span>{new Date(tweetObj.createdAt).toLocaleString()}</span>
+                        {isOwner && (
+                            <div className="tweet__actions">
+                                <span onClick={onDeleteClick}>
+                                    <FontAwesomeIcon icon={faTrash} />
+                                </span>
+                                <span onClick={toggleEditing}>
+                                    <FontAwesomeIcon icon={faPencilAlt} />
+                                </span>
+                            </div>
+                        )}
+                    </div>
                 </>
             )}
         </div>

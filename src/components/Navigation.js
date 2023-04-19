@@ -8,7 +8,7 @@ import {
     faGear,
 } from "@fortawesome/free-solid-svg-icons";
 
-import "../style/scss/nav.scss"
+import "style/scss/nav.scss"
 
 const Navigation = ({ isLoggedIn, userObj }) => 
 <nav>

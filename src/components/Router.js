@@ -30,11 +30,11 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                                 </Route>
                             </div> 
                         ) : (
-                            <>
+                            <div>
                                 <Route exact path="/">
                                     <Auth />
                                 </Route>
-                            </>
+                            </div>
                         )}
                         </div>
                     </Switch>
