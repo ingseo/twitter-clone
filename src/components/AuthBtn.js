@@ -29,10 +29,10 @@ export default function AuthBtn(props) {
     return (
         <div className="authBtns">
             <button onClick={onSocialClick} name="google" className="authBtn">
-                Google 계정{props.social} <FontAwesomeIcon icon={faGoogle} />
+                Google 계정 이용하기 <FontAwesomeIcon icon={faGoogle} />
             </button>
             <button onClick={onSocialClick} name="github" className="authBtn">
-                Github 계정{props.social} <FontAwesomeIcon icon={faGithub} />
+                Github 계정 이용하기 <FontAwesomeIcon icon={faGithub} />
             </button>
         </div>
     )

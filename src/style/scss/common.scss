@@ -38,6 +38,52 @@ html{
     }
 }
 
+//authBtns
+.authBtns{
+    display: flex;
+    flex-direction: column;
+
+    .authBtn{
+        margin: 1.2rem 0;
+        height: 4rem;
+        border-radius: 5rem;
+        border: 1px solid $border;
+        background-color: $hover1;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: 0.2s;
+
+        &:hover{
+            background-color: $hover2;
+        }
+
+        svg{
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+//contact
+.contact{
+    font-size: 1.3rem;
+    
+    .contactText{
+        padding-bottom: 1.2rem;
+        color: $softGray;
+
+        a{
+            color: $skyBlue;
+        }
+    }
+    .contactList{
+        padding-top: 1.2rem;
+        border-top: 1px solid $border;
+
+        a{
+            color: $softGray;
+        }
+    }
+}
 
 @include mobile{
     html{

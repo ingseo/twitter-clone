@@ -52,17 +52,17 @@ const AuthForm = ({popupType}) => {
                 <FontAwesomeIcon icon={faTwitter} />
                 <h1>{newAccount ? "지금 트위터에 가입하세요" : "트위터에 로그인하기"}</h1>
             </div>
-            <div>
+            <div className="btnGroup">
                 <AuthBtn />
                 <div className="line">
-                    <span/>또는<span/>
+                    <span/><p>또는</p><span/>
                 </div>
                 <form className="container" onSubmit={onSubmit}>
                     <input 
                         className="authInput"
                         name = "email"
                         type="email" 
-                        placeholder="Email" 
+                        placeholder="이메일 주소" 
                         required 
                         value={email} 
                         onChange={onChange}
@@ -71,7 +71,7 @@ const AuthForm = ({popupType}) => {
                         className="authInput"
                         name = "password"
                         type="password" 
-                        placeholder="Password" 
+                        placeholder="비밀번호" 
                         required 
                         value={password}
                         onChange={onChange}
