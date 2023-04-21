@@ -78,9 +78,11 @@ html{
     .contactList{
         padding-top: 1.2rem;
         border-top: 1px solid $border;
+        color: $softGray;
 
         a{
             color: $softGray;
+            padding-right: 0.6rem;
         }
     }
 }

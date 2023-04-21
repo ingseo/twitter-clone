@@ -83,7 +83,7 @@ const AuthForm = ({popupType}) => {
                     {error && <span className="authError">{error}</span>}
                 </form>
             </div>
-            <Contact />
+            {newAccount ? <Contact /> : ""}
             <div className="toggleAccount">
                 {newAccount ? "이미 계정이 있으신가요?" : "계정이 없으신가요? "}
                 <span className="authSwitch" onClick={toggleAccount}>
