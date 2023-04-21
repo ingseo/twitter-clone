@@ -68,3 +68,26 @@
         }
     }
 }
+
+@include mobile{
+    .loginBanner{
+        .box{
+            display: none;
+        }
+
+        .flexGroup{
+            .text{
+                display: none;
+            }
+
+            .btnGroup{
+                width: 100%;
+                padding: 0 1.2rem;
+
+                button{
+                    width: calc(50% - 0.6rem);
+                }
+            }
+        }
+    }
+}

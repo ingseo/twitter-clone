@@ -1,14 +1,15 @@
 @charset 'utf-8';
 @import '_utils';
 
+//popup 틀
 .ReactModal__Content{
     padding: 0 !important;
-    height: 65rem;
+    height: 67rem;
     min-height: 40rem;
     max-height: 90vh;
     min-width: 60rem;
     max-width: 80vw;
-    inset: calc(50vh - 32.5rem) calc(50vw - 30rem) !important;
+    inset: calc(50vh - 33.5rem) calc(50vw - 30rem) !important;
     border-radius: 3rem !important;
 
     .xBtn{
@@ -18,13 +19,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: transparent;
+        width: 4rem;
+        height: 4rem;
+        background-color: $hover1;
         font-size: 2rem;
+        border-radius: 50%;
+
+        &:hover{
+            background-color: $hover2;;
+        }
     }    
 }
 
+//popup 내부
 .popup{
     display: flex;
     flex-direction: column;
@@ -37,7 +44,7 @@
         max-width: 30rem;
 
         svg{
-            font-size: 2.5rem;
+            font-size: 4rem;
             color: $skyBlue;
         }
 
