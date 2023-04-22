@@ -9,7 +9,7 @@ function TrendList(props) {
                 <li>{props.tweet} 트윗</li>
             </ul>
             <div className='plusBtn'>
-                ...
+                ···
             </div>
         </div>
     )

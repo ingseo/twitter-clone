@@ -1,6 +1,8 @@
-import React from 'react'
-import Search from 'components/Search'
-import TrendList from 'components/TrendList'
+import React from 'react';
+import Search from 'components/Search';
+import TrendList from 'components/TrendList';
+
+import 'style/scss/trend.scss'
 
 function Trend() {
 

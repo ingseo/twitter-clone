@@ -1,0 +1,95 @@
+@charset 'utf-8';
+@import '_utils';
+
+.trend{
+    margin: 1.2rem 3rem;
+
+    .searchContainer{
+        margin-bottom: 1.2rem;
+
+        &>div{
+            display: flex;
+            width: 100%;
+
+            .searchIcon{
+                padding: 1.2rem;
+                border-radius: 5rem 0 0 5rem;
+                background-color: $white2;
+                font-size: 1.5rem;
+
+                svg{
+                    padding-left: 0.8rem; 
+                }
+            }
+
+            input{
+                width: calc(100% - 4.7rem);
+                padding: 1.2rem;
+                border: none;
+                border-radius: 0 5rem 5rem 0;
+                background-color: $white2;
+                font-size: 1.5rem;
+
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .trendBox{
+        background-color: #f7f9f9;
+        border-radius: 2rem;
+
+        h1{
+            padding: 1.2rem 1.6rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .trendListContainer{
+            .trendListBox{
+                .trendList{
+                    padding: 1.2rem 1.6rem;
+                    width: 100%;
+                    background-color: $hover1;
+                    transition: 0.2s;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: $hover3;
+                    }
+
+                    li{
+                        font-size: 1.3rem;
+                        color: $softGray;
+
+                        &:nth-child(2){
+                            font-weight: 500;
+                            font-size: 1.5rem;
+                            color: $black;
+                        }
+                    }
+                }
+                .plusBtn{
+                    position: absolute;
+                    top: 1.2rem;
+                    right: 1.2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    background-color: $hover1;
+                    border-radius: 50%;
+                    transition: 0.2s;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: $hover3;
+                    }
+                }
+            }
+        }
+    }
+}
