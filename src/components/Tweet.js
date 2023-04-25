@@ -60,20 +60,22 @@ const Tweet = ({ tweetObj, isOwner }) => {
                                     className="formInput"
                                     type="text" 
                                     value={newTweet} 
-                                    placeholder="What's on your mind?"  
+                                    placeholder="무슨 일이 일어나고 있나요?"  
                                     required 
                                     autoFocus
                                     onChange={onChange}
                                 />
-                                <input 
-                                    className="formBtn"
-                                    type="submit"
-                                    value="Update Tweet"
-                                />
+                                <div className="editBtn">
+                                    <input 
+                                        className="formBtn"
+                                        type="submit"
+                                        value="수정하기"
+                                    />
+                                    <button onClick={toggleEditing} className="formBtn cancelBtn">
+                                        취소
+                                    </button>
+                                </div>
                             </form>
-                            <span onClick={toggleEditing} className="formBtn cancelBtn">
-                                취소
-                            </span>
                         </>
                     }
                 </div>

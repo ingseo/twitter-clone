@@ -11,6 +11,7 @@ import TweetFactory from "components/TweetFactory";
 import Trend from 'components/Trend';
 
 import 'style/scss/home.scss'
+import 'style/scss/tweet.scss'
 
 const Home = ({ userObj }) => {
     const [tweets, setTweets] = useState([]);  
@@ -36,7 +37,7 @@ const Home = ({ userObj }) => {
                 <TweetFactory userObj={userObj} />
                 <div>
                     {tweets.map((tweet) => (
-                        <Tweet key={tweet.id} tweetObj={tweet} isOwner={tweet.creatorId === userObj.uid} /> 
+                        <Tweet key={tweet.id} tweetObj={tweet} isOwner={tweet.creatorId === userObj.uid} userObj={userObj}/> 
                     ))}
                 </div>
             </div>
