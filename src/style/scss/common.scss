@@ -32,13 +32,15 @@ html{
             border-right: 1px solid $hover2;
         }
         &:nth-child(2){
-            position: sticky;
             flex: 1;
-            min-height: 100vh;
 
             .box{
                 max-width: 30rem;
                 margin: 1.2rem 3rem;
+
+                &.trend{
+                    margin: 0 3rem;
+                }
             }
         }
     }
