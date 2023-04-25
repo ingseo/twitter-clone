@@ -8,6 +8,9 @@ import {
 } from "firebase/firestore";
 import Tweet from "components/Tweet";
 import TweetFactory from "components/TweetFactory";
+import Trend from 'components/Trend';
+
+import 'style/scss/tweet.scss'
 
 const Home = ({ userObj }) => {
     const [tweets, setTweets] = useState([]);  
@@ -27,12 +30,18 @@ const Home = ({ userObj }) => {
     },[])
 
     return(
-        <div>
-            <TweetFactory userObj={userObj} />
-            <div>
-                {tweets.map((tweet) => (
-                    <Tweet key={tweet.id} tweetObj={tweet} isOwner={tweet.creatorId === userObj.uid} /> 
-                ))}
+        <div className="page homePage">
+            <div className="timeLine container">
+                <h1>홈</h1>
+                <TweetFactory userObj={userObj} />
+                <div>
+                    {tweets.map((tweet) => (
+                        <Tweet key={tweet.id} tweetObj={tweet} isOwner={tweet.creatorId === userObj.uid} userObj={userObj}/> 
+                    ))}
+                </div>
+            </div>
+            <div className='trendContainer container'>
+                <Trend />
             </div>
         </div>
     )

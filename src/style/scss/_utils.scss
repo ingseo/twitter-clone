@@ -1,0 +1,42 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+//color
+$black: #0f1419;
+$gray: #3c4043;
+$softGray: #536471;
+$white: #ffffff;
+$white2: #eff3f4;
+$skyBlue: #1d9bf0;
+$border: rgb(207, 217, 222);
+$softBorder: rgb(255,255,255,0.35);
+
+$hover1: rgb(0, 0, 0, 0);
+$hover2: rgb(15, 20, 25, 0.1);
+$hover3: rgb(0, 0, 0, 0.1);
+$hover4: rgb(29,155,240,0.1);
+
+//반응형
+$mobile: 633px;
+$tablet: 1021px;
+$desktop: 1299px;
+
+@mixin mobile{
+    @media(max-width: $mobile){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media(max-width: $tablet){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media(max-width: $desktop){
+        @content;
+    }
+}
+
+

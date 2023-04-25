@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { collection, getDocs, query, where, orderBy } from "@firebase/firestore";
 import { updateProfile } from "@firebase/auth";
+import Trend from 'components/Trend';
+
+import 'style/scss/profile.scss'
 
 //1. 로그인한 유저 정보 prop으로 받기
 const Profile = ({ refreshUser, userObj }) => {
@@ -49,28 +52,33 @@ const Profile = ({ refreshUser, userObj }) => {
     }
 
     return(
-        <div className="container">
-            <form className="profileForm" onSubmit={onSubmit}>
-                <input 
-                    className="formInput"
-                    onChange={onChange}
-                    type="text" 
-                    autoFocus
-                    placeholder="Display name" 
-                    value={newDisplayName}    
-                />
-                <input
-                    type="submit"
-                    value="Update Profile"
-                    className="formBtn"
-                    style={{
-                        marginTop: 10,
-                    }}
-                />
-            </form>
-            <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
-                Log Out
-            </span>
+        <div className="page ProfilePage">
+            <div className="propfileContainer container">
+                <h1>프로필</h1>
+                <form className="profileForm" onSubmit={onSubmit}>
+                    <input 
+                        className="formInput"
+                        onChange={onChange}
+                        type="text" 
+                        autoFocus
+                        placeholder="Display name" 
+                        value={newDisplayName}    
+                    />
+                    <div className="profileBtn">
+                        <input
+                            type="submit"
+                            value="닉네임 변경"
+                            className="formBtn"
+                        />
+                        <button className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+                            로그아웃
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div className='trendContainer container'>
+                <Trend />
+            </div>
         </div>
     )
 }

@@ -30,13 +30,11 @@ const Tweet = ({ tweetObj, isOwner }) => {
         toggleEditing();
     }
 
-    
-
     //delete
     //삭제하려는 이미지 파일 가리키는 ref 생성하기(tweetObj의 attachmentUrl)
     const desertRef = ref(storageService, tweetObj.attachmentUrl);
     const onDeleteClick = async() => {
-        const ok = window.confirm("Are you sure you want to delelte this tweet?");
+        const ok = window.confirm("트윗을 삭제할까요?");
         if(ok){
             try {
                 //해당하는 트윗(텍스트) 파이어스토어에서 삭제
@@ -54,47 +52,54 @@ const Tweet = ({ tweetObj, isOwner }) => {
     return (
         <div className="tweet">
             {editing ? (
-                <>
+                <div className="tweetBox">
                     {isOwner && 
                         <>
-                            <form className="container tweetEdit" onSubmit={onSubmit}>
+                            <form className="tweetEdit" onSubmit={onSubmit}>
                                 <input 
                                     className="formInput"
                                     type="text" 
                                     value={newTweet} 
-                                    placeholder="What's on your mind?"  
+                                    placeholder="무슨 일이 일어나고 있나요?"  
                                     required 
                                     autoFocus
                                     onChange={onChange}
                                 />
-                                <input 
-                                    className="formBtn"
-                                    type="submit"
-                                    value="Update Tweet"
-                                />
+                                <div className="editBtn">
+                                    <input 
+                                        className="formBtn"
+                                        type="submit"
+                                        value="수정하기"
+                                    />
+                                    <button onClick={toggleEditing} className="formBtn cancelBtn">
+                                        취소
+                                    </button>
+                                </div>
                             </form>
-                            <span onClick={toggleEditing} className="formBtn cancelBtn">
-                                Cancel
-                            </span>
                         </>
                     }
-                </>
+                </div>
             ) : (
-                <>
-                    <h4>{tweetObj.text}</h4>
-                    {tweetObj.attachmentUrl && <img src={tweetObj.attachmentUrl} />}
-                    <span>{new Date(tweetObj.createdAt).toLocaleString()}</span>
-                    {isOwner && (
-                        <div className="tweet__actions">
-                            <span onClick={onDeleteClick}>
-                                <FontAwesomeIcon icon={faTrash} />
-                            </span>
-                            <span onClick={toggleEditing}>
-                                <FontAwesomeIcon icon={faPencilAlt} />
-                            </span>
+                <div className="tweetBox">
+                    <div className="tweetInfo">
+                        <div className="userData">
+                            <span className="userName">{tweetObj.creatorName}</span>
+                            <span className="date">{new Date(tweetObj.createdAt).toLocaleString()}</span>
                         </div>
-                    )}
-                </>
+                        {isOwner && (
+                            <div className="tweet__actions">
+                                <span onClick={onDeleteClick}>
+                                    <FontAwesomeIcon icon={faTrash} />
+                                </span>
+                                <span onClick={toggleEditing}>
+                                    <FontAwesomeIcon icon={faPencilAlt} />
+                                </span>
+                            </div>
+                        )}
+                    </div>
+                    <p className="tweetText">{tweetObj.text}</p>
+                    {tweetObj.attachmentUrl && <img src={tweetObj.attachmentUrl} />}
+                </div>
             )}
         </div>
     )

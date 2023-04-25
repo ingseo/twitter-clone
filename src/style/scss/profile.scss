@@ -1,0 +1,59 @@
+@charset 'utf-8';
+@import '_utils';
+
+.ProfilePage{
+    .propfileContainer{
+        .profileForm{
+            padding: 1.2rem 1.6rem;
+
+            .formInput{
+                padding: 1.2rem;
+                width: 100%;
+                font-size: 1.5rem;
+                border: 1px solid $border;
+                border-radius: 0.5rem;
+
+                &:hover{
+                    border: 1px solid $skyBlue;
+                }
+
+                &:focus{
+                    outline: none;
+                    border: 1px solid $skyBlue;
+                }
+            }
+
+            .profileBtn{
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 1.2rem;
+
+                .formBtn{
+                    height: 3.6rem;
+                    padding: 0 1.6rem;
+                    margin-left: 1.2rem;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    background: $skyBlue;
+                    color: $white;
+                    border: none;
+                    border-radius: 5rem;
+
+                    &:hover{
+                        background-color: rgb(26, 140, 216);
+                    }
+
+                    &.cancelBtn{
+                        color: $skyBlue;
+                        background-color: $hover1;
+                        border: 1px solid $skyBlue;
+
+                        &:hover{
+                            background-color: $hover2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
