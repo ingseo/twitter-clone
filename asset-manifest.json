@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "https://ingseo.github.io/twitter-clone/static/css/main.9db80b45.css",
-    "main.js": "https://ingseo.github.io/twitter-clone/static/js/main.4e4dc9a1.js",
+    "main.css": "https://ingseo.github.io/twitter-clone/static/css/main.bee567ce.css",
+    "main.js": "https://ingseo.github.io/twitter-clone/static/js/main.fee430c3.js",
     "index.html": "https://ingseo.github.io/twitter-clone/index.html",
-    "main.9db80b45.css.map": "https://ingseo.github.io/twitter-clone/static/css/main.9db80b45.css.map",
-    "main.4e4dc9a1.js.map": "https://ingseo.github.io/twitter-clone/static/js/main.4e4dc9a1.js.map"
+    "main.bee567ce.css.map": "https://ingseo.github.io/twitter-clone/static/css/main.bee567ce.css.map",
+    "main.fee430c3.js.map": "https://ingseo.github.io/twitter-clone/static/js/main.fee430c3.js.map"
   },
   "entrypoints": [
-    "static/css/main.9db80b45.css",
-    "static/js/main.4e4dc9a1.js"
+    "static/css/main.bee567ce.css",
+    "static/js/main.fee430c3.js"
   ]
 }
