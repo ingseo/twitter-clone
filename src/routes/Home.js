@@ -10,6 +10,8 @@ import Tweet from "components/Tweet";
 import TweetFactory from "components/TweetFactory";
 import Trend from 'components/Trend';
 
+import 'style/scss/home.scss'
+
 const Home = ({ userObj }) => {
     const [tweets, setTweets] = useState([]);  
 

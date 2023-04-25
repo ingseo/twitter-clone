@@ -6,6 +6,8 @@ import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faImage } from "@fortawesome/free-solid-svg-icons";
 
+import 'style/scss/tweet.scss'
+
 const TweetFactory = ({ userObj }) => {
     const [tweet, setTweet] = useState("");
     const [attachment, setAttachment] = useState("");
@@ -70,12 +72,12 @@ const TweetFactory = ({ userObj }) => {
         <form className="factoryForm" onSubmit={onSubmit}>
             <div className="factoryInput__container">
                 <input
-                className="factoryInput__input"
-                value={tweet}
-                onChange={onChange}
-                type="text"
-                placeholder="무슨 일이 일어나고 있나요?"
-                maxLength={140}
+                    className="factoryInput__input"
+                    value={tweet}
+                    onChange={onChange}
+                    type="text"
+                    placeholder="무슨 일이 일어나고 있나요?"
+                    maxLength={140}
                 />
                 <input 
                     id="attach-file"
@@ -105,7 +107,7 @@ const TweetFactory = ({ userObj }) => {
                 <label htmlFor="attach-file" className="factoryInput__label">
                     <FontAwesomeIcon icon={faImage} />
                 </label>
-                <input type="submit" value="트윗하기" className="factoryInput__arrow" />
+                <input type="submit" value="트윗하기" className="factoryInput__submit" />
             </div>
         </form>
     )
