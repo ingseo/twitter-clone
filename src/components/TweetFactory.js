@@ -6,8 +6,6 @@ import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faImage } from "@fortawesome/free-solid-svg-icons";
 
-import 'style/scss/tweet.scss'
-
 const TweetFactory = ({ userObj }) => {
     const [tweet, setTweet] = useState("");
     const [attachment, setAttachment] = useState("");
@@ -33,8 +31,10 @@ const TweetFactory = ({ userObj }) => {
             text: tweet,
             createdAt: Date.now(),
             creatorId: userObj.uid,
+            creatorName: userObj.displayName,
             attachmentUrl,
         }
+        
         //트윗하기 누르면 tweetObj 형태로 새로운 document 생성하여 tweets 콜렉션에 넣기
         await addDoc(collection(dbService, "tweets"), tweetObj);
         //state 비워서 form 비우기
