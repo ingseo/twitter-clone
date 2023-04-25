@@ -19,7 +19,7 @@ const Auth = () => {
                 <Trend />
             </div>
             <div className="authContainer container">
-                <div className='authBox'>
+                <div className='authBox box'>
                     <div className="title">
                         <h1>트위터에 처음이세요?</h1>
                         <p>지금 가입해서 나에게 맞춤 설정된 타임라인을 만들어 보세요!</p>

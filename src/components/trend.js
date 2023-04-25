@@ -59,7 +59,7 @@ function Trend() {
     }
 
     return (
-        <div className='trend'>
+        <div className='trend box'>
             <div className='searchContainer'>
                 <Search />
             </div>

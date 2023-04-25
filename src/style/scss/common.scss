@@ -27,13 +27,19 @@ html{
     
     .container{
         &:nth-child(1){
+            max-width: 60rem;
             flex: 2;
+            border-right: 1px solid $hover2;
         }
         &:nth-child(2){
             position: sticky;
             flex: 1;
             min-height: 100vh;
-            border-left: 1px solid $hover2;
+
+            .box{
+                max-width: 30rem;
+                margin: 1.2rem 3rem;
+            }
         }
     }
 }
