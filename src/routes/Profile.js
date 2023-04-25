@@ -5,6 +5,8 @@ import { collection, getDocs, query, where, orderBy } from "@firebase/firestore"
 import { updateProfile } from "@firebase/auth";
 import Trend from 'components/Trend';
 
+import 'style/scss/profile.scss'
+
 //1. 로그인한 유저 정보 prop으로 받기
 const Profile = ({ refreshUser, userObj }) => {
     const history = useHistory();
@@ -52,6 +54,7 @@ const Profile = ({ refreshUser, userObj }) => {
     return(
         <div className="page ProfilePage">
             <div className="propfileContainer container">
+                <h1>프로필</h1>
                 <form className="profileForm" onSubmit={onSubmit}>
                     <input 
                         className="formInput"
@@ -61,18 +64,17 @@ const Profile = ({ refreshUser, userObj }) => {
                         placeholder="Display name" 
                         value={newDisplayName}    
                     />
-                    <input
-                        type="submit"
-                        value="닉네임 변경"
-                        className="formBtn"
-                        style={{
-                            marginTop: 10,
-                        }}
-                    />
+                    <div className="profileBtn">
+                        <input
+                            type="submit"
+                            value="닉네임 변경"
+                            className="formBtn"
+                        />
+                        <button className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+                            로그아웃
+                        </button>
+                    </div>
                 </form>
-                <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
-                    로그아웃
-                </span>
             </div>
             <div className='trendContainer container'>
                 <Trend />
