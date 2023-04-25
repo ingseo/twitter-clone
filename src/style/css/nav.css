@@ -6,8 +6,12 @@ nav {
   border-right: 1px solid rgba(15, 20, 25, 0.1);
 }
 nav ul {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
   padding: 0 0.8rem;
   width: 25rem;
+  height: 100vh;
 }
 nav ul li {
   padding-top: 0.4rem;

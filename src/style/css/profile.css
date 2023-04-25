@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+.ProfilePage .propfileContainer .profileForm {
+  padding: 1.2rem 1.6rem;
+}
+.ProfilePage .propfileContainer .profileForm .formInput {
+  padding: 1.2rem;
+  width: 100%;
+  font-size: 1.5rem;
+  border: 1px solid rgb(207, 217, 222);
+  border-radius: 0.5rem;
+}
+.ProfilePage .propfileContainer .profileForm .formInput:hover {
+  border: 1px solid #1d9bf0;
+}
+.ProfilePage .propfileContainer .profileForm .formInput:focus {
+  outline: none;
+  border: 1px solid #1d9bf0;
+}
+.ProfilePage .propfileContainer .profileForm .profileBtn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+}
+.ProfilePage .propfileContainer .profileForm .profileBtn .formBtn {
+  height: 3.6rem;
+  padding: 0 1.6rem;
+  margin-left: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: #1d9bf0;
+  color: #ffffff;
+  border: none;
+  border-radius: 5rem;
+}
+.ProfilePage .propfileContainer .profileForm .profileBtn .formBtn:hover {
+  background-color: rgb(26, 140, 216);
+}
+.ProfilePage .propfileContainer .profileForm .profileBtn .formBtn.cancelBtn {
+  color: #1d9bf0;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #1d9bf0;
+}
+.ProfilePage .propfileContainer .profileForm .profileBtn .formBtn.cancelBtn:hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}/*# sourceMappingURL=profile.css.map */

@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+.ReactModal__Content {
+  padding: 0 !important;
+  height: 67rem;
+  min-height: 40rem;
+  max-height: 90vh;
+  min-width: 60rem;
+  max-width: 80vw;
+  inset: calc(50vh - 33.5rem) calc(50vw - 30rem) !important;
+  border-radius: 3rem !important;
+}
+.ReactModal__Content .xBtn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 2rem;
+  border-radius: 50%;
+}
+.ReactModal__Content .xBtn:hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.popup .title {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  max-width: 30rem;
+}
+.popup .title svg {
+  font-size: 4rem;
+  color: #1d9bf0;
+}
+.popup .title h1 {
+  height: 7.6rem;
+  line-height: 7.6rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.popup .btnGroup {
+  width: 30rem;
+}
+.popup .btnGroup .line {
+  display: flex;
+  align-items: center;
+}
+.popup .btnGroup .line p {
+  width: 4rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.popup .btnGroup .line span {
+  display: block;
+  height: 1px;
+  width: calc(50% - 2rem);
+  background-color: rgb(207, 217, 222);
+}
+.popup .btnGroup .container {
+  display: flex;
+  flex-direction: column;
+}
+.popup .btnGroup .container .authInput {
+  margin: 1.2rem 0;
+  padding: 1rem;
+  height: 4rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgb(207, 217, 222);
+}
+.popup .btnGroup .container .authInput:focus {
+  outline: none;
+  border: 3px solid #1d9bf0;
+}
+.popup .btnGroup .container .authSubmit {
+  background-color: #0f1419;
+  color: #ffffff;
+  border: none;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.popup .btnGroup .container .authSubmit:focus {
+  outline: none;
+  border: 1px solid rgb(207, 217, 222);
+}
+.popup .contact {
+  max-width: 30rem;
+}
+.popup .toggleAccount {
+  width: 30rem;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  color: #536471;
+}
+.popup .toggleAccount span {
+  color: #1d9bf0;
+  cursor: pointer;
+}
+
+@media (max-width: 633px) {
+  .ReactModal__Content {
+    height: 100vh;
+    max-height: none;
+    max-width: none;
+    min-width: auto;
+    width: 100%;
+    inset: 0 !important;
+    border-radius: 0 !important;
+    border: none;
+  }
+}/*# sourceMappingURL=popup.css.map */

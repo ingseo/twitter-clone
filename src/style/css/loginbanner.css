@@ -26,6 +26,9 @@
   font-size: 2.3rem;
   font-weight: bold;
 }
+.loginBanner .btnGroup {
+  margin-right: 1.6rem;
+}
 .loginBanner .btnGroup button {
   padding: 0 1.6rem;
   height: 3.4rem;
@@ -52,5 +55,21 @@
 @media (max-width: 1299px) {
   .loginBanner .box {
     width: 7rem;
+  }
+}
+@media (max-width: 633px) {
+  .loginBanner .box {
+    display: none;
+  }
+  .loginBanner .flexGroup .text {
+    display: none;
+  }
+  .loginBanner .flexGroup .btnGroup {
+    width: 100%;
+    padding: 0 1.2rem;
+    margin-right: 0;
+  }
+  .loginBanner .flexGroup .btnGroup button {
+    width: calc(50% - 0.6rem);
   }
 }/*# sourceMappingURL=loginbanner.css.map */
