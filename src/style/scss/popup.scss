@@ -2,33 +2,37 @@
 @import '_utils';
 
 //popup 틀
-.ReactModal__Content{
-    padding: 0 !important;
-    height: 67rem;
-    min-height: 40rem;
-    max-height: 90vh;
-    min-width: 60rem;
-    max-width: 80vw;
-    inset: calc(50vh - 33.5rem) calc(50vw - 30rem) !important;
-    border-radius: 3rem !important;
+.ReactModalPortal{
+    z-index: 100;
 
-    .xBtn{
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 4rem;
-        height: 4rem;
-        background-color: $hover1;
-        font-size: 2rem;
-        border-radius: 50%;
-
-        &:hover{
-            background-color: $hover2;;
-        }
-    }    
+    .ReactModal__Content{
+        padding: 0 !important;
+        height: 67rem;
+        min-height: 40rem;
+        max-height: 90vh;
+        min-width: 60rem;
+        max-width: 80vw;
+        inset: calc(50vh - 33.5rem) calc(50vw - 30rem) !important;
+        border-radius: 3rem !important;
+    
+        .xBtn{
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: $hover1;
+            font-size: 2rem;
+            border-radius: 50%;
+    
+            &:hover{
+                background-color: $hover2;;
+            }
+        }    
+    }
 }
 
 //popup 내부
