@@ -6,7 +6,7 @@
 ```
 ***
 ### 프로젝트 소개
-해당 프로젝트는 React와 SCSS, Firebase를 사용하여 실제 트위터 기능과 화면을 최대한 구현하는 것을 목표로 하였습니다.<br>
+해당 프로젝트는 React와 SCSS, Firebase를 사용하여 실제 트위터의 기능과 반응형 화면을 최대한 구현하는 것을 목표로 하였습니다.<br>
 또한 Nomad Coder의 강의를 참고하여 만든 클론코딩 작업물을 재구현하고 실제 트위터 사이트와 비슷한 디자인과 기능 등을 개인적으로 추가해 만든 작업물입니다.<br>
 노션을 통해 보다 자세한 작업과정을 확인하실 수 있습니다 :arrow_forward: <a href="https://ingseo.notion.site/a614b41638b04c7da2191429b1cb6995?v=a2b364dcf694451e93f960ec5985c0d6"><img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white" /></a>
 ***
