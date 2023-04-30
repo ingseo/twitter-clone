@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# :hatching_chick: Twitter 트위터 클론 (반응형) 
+프로젝트 링크 :point_right: https://ingseo.github.io/twitter-clone/
+```
+회원가입 없이 사용할 수 있는 ID
+ - ID: test@gmail.com / Password: 12345678
+```
+***
+### 프로젝트 소개
+해당 프로젝트는 React와 SCSS, Firebase를 사용하여 실제 트위터 기능과 화면을 최대한 구현하는 것을 목표로 하였습니다.
+또한 Nomad Coder의 강의를 참고하여 만든 클론코딩 작업물을 재구현하고 실제 트위터 사이트와 비슷한 디자인과 기능 등을 개인적으로 추가해 만든 작업물입니다.
+노션을 통해 보다 자세한 작업과정을 확인하실 수 있습니다 :arrow_forward: <a href="https://ingseo.notion.site/a614b41638b04c7da2191429b1cb6995?v=a2b364dcf694451e93f960ec5985c0d6"><img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white" /></a>
+***
+### 주요기능
+1. 회원가입, 로그인, 소셜로그인(구글/깃허브), 로그아웃  
+2. 프로필 닉네임 설정 및 트윗에 작성자 표시
+3. 트윗 작성(이미지 포함), 수정, 삭제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 추가 예정 사항
+1. 프로필 사진 추가
+2. 반응형 액션(좋아요, 리트윗 등)
+3. 트렌드 관련 기능
+4. 트윗 검색 기능
+5. 비밀번호 찾기
+6. 트윗 수정 기능에 이미지 수정 포함
+7. 닉네임 변경 시, 기존에 작성한 트윗의 작성자도 변경
+8. 기능 추가에 따른 ui 작업
 
-## Available Scripts
+### 이슈사항
+1. gmail로 로그인 이력이 남아있을 경우, 같은 이메일을 사용하는 github으로는 소셜 로그인이 되지 않는 문제
+2. 트윗에 이미지를 첨부할 때, 첨부한 이미지를 지울 경우 해당 이미지가 다시 업로드 되지 않는 문제
+3. 핸드폰으로 접속 시, 소셜로그인이 되지않는 문제
+4. 소셜로그인 버튼 내부 아이콘 클릭 시 에러가 발생하는 문제
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***
+### 메인화면
+<img src="https://imgur.com/HjsOckC.png" />
+<img src="https://imgur.com/fuswpyV.png" />
+<img src="https://imgur.com/aMr6yFW.png" />
